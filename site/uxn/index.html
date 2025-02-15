@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width" />
+	<title>Varvara Emulator(Loading..)</title>
+	<style>
+		textarea, select, input, button { outline: none }
+		body { font-family:monospace; padding:30px; margin:0; background:#000; color:white; }
+		body a { color:white; text-decoration:none }
+		body a:hover { text-decoration:underline }
+		textarea { resize:none; width:100%; height:100vh; border:0; padding:10px; margin-bottom:0px; background:#efefef }
+		div#term { width:100%; background:#000; padding:10px; color:white; height:55px; overflow:scroll; white-space:pre; display:none }
+		div#stack { width:100%; height:25px; background:#72dec2; padding:10px; margin-bottom:20px;font-weight:bold; display:none }
+		#emulator { width:fit-content; margin:auto; display:none; }
+		body.embed #emulator, body.default #emulator { display:block }
+		#share { display:none }
+		#display { image-rendering:pixelated; image-rendering:crisp-edges; touch-action:none;position:relative; margin:0px auto; display:block }
+		#display { cursor:none }
+		#metadata { display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-around; align-content:start; }
+		#metadata ul { margin-left:25px; padding:0;float:left;line-height:24px;margin-bottom:45px }
+		#metadata ul li { color:#888; list-style-type:none; }
+		#metadata .right { display:inline-block;position:absolute;right:30px }
+		#metadata b { color:#fff }
+		#metadata button, #metadata input { display:inline-block; background:white; border:0;font-size:12px; border-radius:30px;padding:2px 10px;line-height:20px;margin-bottom:1px; vertical-align:center }
+		#metadata input { padding:2px 2px;width:160px }
+		#metadata input[type="file"]::file-selector-button { display:inline-block;border:0;background:#000; color:white; border-radius:30px; padding:2px 10px }
+		#metadata button:hover, #metadata input:hover { background:#72dec2; cursor:pointer}
+		#metadata kbd { border:0;font-size:11px;font-weight:bold;padding:2px 2px;border-radius:30px;color:white;}
+		#console_err { color:red; font-weight:bold }
+		#suffix { position:relative; }
+		#suffix:before { content:"•";position:absolute;left:10px;line-height:30px; color:white }
+		#suffix input { width:calc(100% - 35px);border:0;padding:0px 10px 0px 25px;font-family:mono;line-height:30px;background:#000;color:white }
+		#suffix pre { margin:0;font-family:mono;font-size:12px; padding:0px 25px;color:white }
+		.embed { padding:0; overflow:hidden }
+		.embed #metadata { display:none }
+		.embed #suffix { display:none }
+		.embed #screen { margin-bottom:0;border:0px !important }
+		.embed #emulator { top:0 }
+		.share-popup { background:#000; position:fixed;z-index:1000;bottom:50px;right:10px;padding:0px 10px;border-radius:3px;}
+		.share-popup button { margin-left:0; border-radius:0 !important}
+		.share-popup input {width:20em; border-radius:0 !important; margin-left:0; background:#ccc !important;padding:2px 15px !important;}
+		div.noscript { display:block; padding:15px; margin:30px auto; max-width:400px; }
+		div.noscript img { float:left; margin-right:15px }
+		div.noscript a { text-decoration:underline; font-weight:bold }
+	</style>
+</head>
+<body>
+  <header>
+		<a href="/">Caleb's Website<a>
+		<a href="/uxn">Uxn</a>
+  </header>
+	<div id="emulator">
+		<canvas id="display" width="100" height="100"></canvas>
+		<div id='suffix'>
+			<input type="text" id="console_input" placeholder="console">
+			<pre id='console_std'></pre>
+			<pre id='console_err'></pre>
+		</div>
+		<div id='metadata'>
+			<ul>
+				<li><input id="browser" type="file" name="name" /> <span id="share"></span> <span id="save"></span> <button onclick="emulator.screen.toggle_zoom()">Zoom</button></li>
+				<li><kbd>A</kbd> ctrl <kbd>B</kbd> alt <kbd>SEL</kbd> shift</li>
+				<li><span id='metarom'></span></li>
+			</ul>
+		</div>
+	</div>
+	<noscript>
+		<div class='noscript'>
+			<p>Varvara emulator requires javascript,<br />try other <a href='https://wiki.xxiivv.com/site/varvara.html'>emulator options</a>.</p>
+		</div>
+	</noscript>
+	<script src="/static/js/uxn5/src/uxn.js"></script>
+	<!-- Comment this line out to use the vanilla js core -->
+	<script src="/static/js/uxn5/src/uxn-wasm.js"></script>
+	<script src="/static/js/uxn5/src/emu.js"></script>
+	<script src="/static/js/uxn5/src/devices/system.js"></script>
+	<script src="/static/js/uxn5/src/devices/console.js"></script>
+	<script src="/static/js/uxn5/src/devices/controller.js"></script>
+	<script src="/static/js/uxn5/src/devices/datetime.js"></script>
+	<script src="/static/js/uxn5/src/devices/file.js"></script>
+	<script src="/static/js/uxn5/src/devices/mouse.js"></script>
+	<script src="/static/js/uxn5/src/devices/screen.js"></script>
+	<script src="/static/js/uxn5/src/boot.js"></script>
+	<script>
+		const emulator = new Emu(window.self !== window.top)
+		emulator.init()
+	</script>
+</body>
+</html>
