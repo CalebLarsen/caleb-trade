@@ -58,6 +58,12 @@ span {
   color: deeppink;
 }
 
+main {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .initial {
   display: inline-block;
   position: relative;
@@ -67,4 +73,16 @@ span {
   height: 1em;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
+.top-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
