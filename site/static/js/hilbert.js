@@ -56,7 +56,7 @@ function keyPressed(){
   }
 }
 
-function mousePressed(event) {
+function mouseClicked(event) {
   if (event.detail > 1) {
     return;
   }
