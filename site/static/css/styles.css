@@ -45,10 +45,10 @@ a {
 
 @media screen and (orientation: portrait) {
   h1, h2, h3, h4 {
-    font-size: 5.5em;
+    font-size: 3em;
   }
   a, p {
-    font-size: 4em;
+    font-size: 2em;
   }
 }
 
