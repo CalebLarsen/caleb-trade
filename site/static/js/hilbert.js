@@ -4,7 +4,7 @@ let wh;
 
 
 function setup(){
-  wh = Math.min(windowHeight, windowWidth) / (1.3333);
+  wh = Math.min(windowHeight, windowWidth) / (1.5);
   c = document.getElementById('target');
   canvas = createCanvas(wh, wh, c);
   canvas.addClass("center");
