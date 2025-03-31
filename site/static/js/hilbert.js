@@ -1,9 +1,10 @@
 let curve;
 let depth;
+let wh;
 
 
 function setup(){
-  let wh = Math.min(windowHeight, windowWidth);
+  wh = Math.min(windowHeight, windowWidth) / (1.3333);
   c = document.getElementById('target');
   canvas = createCanvas(wh, wh, c);
   canvas.addClass("center");
@@ -42,7 +43,6 @@ function zoom_in(){
 }
 
 function zoom_out(){
-  let wh = Math.min(windowHeight, windowWidth);
   curve = make_curve('a', 0, 0, wh, wh);
   for (let i = 1; i < depth; i++){
     advance_curve(curve);
@@ -63,29 +63,16 @@ function keyPressed(){
   }
 }
 
-function touchStarted(){
-  console.log("touched", event);
-  if (event.detail > 1) {
-    return;
-  }
-  zoom_in();
-}
-
-function mousePressed(event) {
-  console.log("clicked", event);
-  if (event.detail > 1) {
-    return;
-  }
-  zoom_in();
-}
-
-function doubleClicked(){
-  console.log("double click");
-  depth -= 2;
+function minus_button(){
+  depth -= 1;
   if (depth == 0){
     depth = 1;
   }
   zoom_out();
+}
+
+function plus_button(){
+  zoom_in();
 }
 
 function draw(){

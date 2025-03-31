@@ -58,12 +58,6 @@ span {
   color: deeppink;
 }
 
-main {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
 .initial {
   display: inline-block;
   position: relative;
@@ -85,4 +79,20 @@ main {
   left: 0;
   top: 0;
   z-index: 100;
+}
+
+.demo-button {
+  width:1em;
+  height:1em;
+  border-radius: 50%;
+  background: deeppink;
+  padding: 0.5em;
+  font-size: 2em;
+  cursor:pointer;
+  text-align:center;
+  user-select:none;
+}
+
+.demo-button:hover {
+  background: hotpink;
 }
