@@ -7,7 +7,6 @@ function setup(){
   c = document.getElementById('target');
   canvas = createCanvas(wh, wh, c);
   canvas.addClass("center");
-  canvas.style("pointer-events:none;cursor: not-allowed; ");
   curve = make_curve('a', 0, 0, wh, wh);
   depth = 1;
   noLoop();
