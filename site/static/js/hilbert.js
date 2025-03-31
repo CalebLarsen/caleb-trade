@@ -35,33 +35,44 @@ function curve_size(c){
   return 3;
 }
 
+function zoom_in(){
+  advance_curve(curve);
+  depth += 1;
+  redraw();
+}
+
+function zoom_out(){
+  let wh = Math.min(windowHeight, windowWidth);
+  curve = make_curve('a', 0, 0, wh, wh);
+  for (let i = 1; i < depth; i++){
+    advance_curve(curve);
+  }
+  redraw();
+}
+
+// function touchStarted(){
+//   console.log("touched");
+//   zoom_in();
+// }
+
 function keyPressed(){
   if (keyCode === 32) {
-    advance_curve(curve);
-    depth += 1;
-    redraw();
+    zoom_in();
   } else if (keyCode === 16){
     depth -= 1;
     if (depth == 0){
       depth = 1;
     }
-
-    let wh = Math.min(windowHeight, windowWidth);
-    curve = make_curve('a', 0, 0, wh, wh);
-    for (let i = 1; i < depth; i++){
-      advance_curve(curve);
-    }
-    redraw();
+    zoom_out();
   }
 }
 
-function mouseClicked(event) {
+function mousePressed(event) {
+  console.log("clicked");
   if (event.detail > 1) {
     return;
   }
-  advance_curve(curve);
-  depth += 1;
-  redraw();
+  zoom_in();
 }
 
 function doubleClicked(){
@@ -69,12 +80,7 @@ function doubleClicked(){
   if (depth == 0){
     depth = 1;
   }
-  let wh = Math.min(windowHeight, windowWidth);
-  curve = make_curve('a', 0, 0, wh, wh);
-  for (let i = 1; i < depth; i++){
-    advance_curve(curve);
-  }
-  redraw();
+  zoom_out();
 }
 
 function draw(){
