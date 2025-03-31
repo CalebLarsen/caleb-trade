@@ -74,11 +74,18 @@ span {
   width: 50%;
 }
 
-.top-left {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 100;
+/* .top-left { */
+  /* position: absolute; */
+  /* left: 0; */
+  /* top: 0; */
+  /* z-index: 100; */
+/* } */
+
+.demo-button-box {
+  display: flex;
+  justify-content:center;
+  /* margin-left: 35%; */
+  /* margin-right: 35%; */
 }
 
 .demo-button {
@@ -86,8 +93,8 @@ span {
   height:1em;
   border-radius: 50%;
   background: deeppink;
-  padding: 0.5em;
-  font-size: 2em;
+  padding: 0.25em;
+  font-size: 3em;
   cursor:pointer;
   text-align:center;
   user-select:none;
