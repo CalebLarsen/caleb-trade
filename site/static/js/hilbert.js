@@ -50,10 +50,13 @@ function zoom_out(){
   redraw();
 }
 
-// function touchStarted(){
-//   console.log("touched");
-//   zoom_in();
-// }
+function touchStarted(){
+  console.log("touched");
+  if (event.detail > 1) {
+    return;
+  }
+  zoom_in();
+}
 
 function keyPressed(){
   if (keyCode === 32) {
@@ -67,13 +70,13 @@ function keyPressed(){
   }
 }
 
-function mousePressed(event) {
-  console.log("clicked");
-  if (event.detail > 1) {
-    return;
-  }
-  zoom_in();
-}
+// function mousePressed(event) {
+//   console.log("clicked");
+//   if (event.detail > 1) {
+//     return;
+//   }
+//   zoom_in();
+// }
 
 function doubleClicked(){
   depth -= 2;
