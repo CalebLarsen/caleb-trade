@@ -50,13 +50,6 @@ function zoom_out(){
   redraw();
 }
 
-function touchStarted(){
-  console.log("touched");
-  if (event.detail > 1) {
-    return;
-  }
-  zoom_in();
-}
 
 function keyPressed(){
   if (keyCode === 32) {
@@ -70,15 +63,24 @@ function keyPressed(){
   }
 }
 
-// function mousePressed(event) {
-//   console.log("clicked");
-//   if (event.detail > 1) {
-//     return;
-//   }
-//   zoom_in();
-// }
+function touchStarted(){
+  console.log("touched", event);
+  if (event.detail > 1) {
+    return;
+  }
+  zoom_in();
+}
+
+function mousePressed(event) {
+  console.log("clicked", event);
+  if (event.detail > 1) {
+    return;
+  }
+  zoom_in();
+}
 
 function doubleClicked(){
+  console.log("double click");
   depth -= 2;
   if (depth == 0){
     depth = 1;
