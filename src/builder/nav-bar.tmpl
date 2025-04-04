@@ -1,0 +1,6 @@
+{{define "NAV-BAR"}}<header>
+  <nav>
+    <a href="/">Caleb's Website</a>
+    {{range .Sections}}<a style="margin-left: 2em"; href="/{{.}}">{{Capital .}}</a>{{end}}
+  </nav>
+</header>{{end}}

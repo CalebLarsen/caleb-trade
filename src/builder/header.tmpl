@@ -1,0 +1,9 @@
+{{define "HEADER"}}<!DOCTYPE HTML>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/static/css/styles.css" rel="stylesheet">
+  <link href="/static/img/favicon.ico" rel="icon" type="image/x-icon">
+  {{range .Scripts}}<script src='{{.}}'></script>{{end}}
+  <title>{{.Title}}</title>
+</head>{{end}}

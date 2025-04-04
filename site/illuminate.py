@@ -18,14 +18,6 @@ def illuminate(text):
     newtext += text[prev:]
     return newtext
 
-def header():
-    with open("header.html", "r") as f:
-        return f.read()
-
-def footer():
-    with open("footer.html", "r") as f:
-        return f.read()
-
 def main():
     if len(sys.argv) != 2:
         print("[Usage] ./illuminate.py 'file.html'")
@@ -33,9 +25,7 @@ def main():
     with open(sys.argv[1], "r+") as f:
         newf = illuminate(f.read())
         f.seek(0)
-        f.write(header())
         f.write(newf)
-        f.write(footer())
         f.truncate()
 
 

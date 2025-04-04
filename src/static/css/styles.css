@@ -1,0 +1,112 @@
+@font-face {
+  font-family: Demode;
+  src: url(../fonts/DemodeCapitals.ttf);
+}
+@font-face {
+  font-family: Kalos;
+  src: url(../fonts/Kalos.ttf);
+}
+
+body {
+  margin: 0 1.5em 0 1.5em;
+  font-family: Kalos, Arial, sans-serif;
+  background-color: black;
+  color: white;
+}
+
+header {
+  padding: 0.5em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid deeppink;
+  margin-bottom: 1em;
+}
+
+h1, h2, h3, h4 {
+  margin: 1em 2em 0.25em 2em;
+  font-variant: small-caps;
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  color: deeppink;
+}
+
+a, p {
+  font-size: 2em;
+}
+
+p {
+  font-size: 2em;
+  margin: 0 10vw 0.3em 10vw;
+  text-align: justify;
+}
+
+a {
+  color: deeppink;
+  text-decoration: none;
+}
+
+
+@media screen and (orientation: portrait) {
+  h1, h2, h3, h4 {
+    font-size: 3em;
+  }
+  a, p {
+    font-size: 2em;
+  }
+}
+
+span {
+  text-indent: 1em;
+  margin: 0;
+  color: deeppink;
+}
+
+.initial {
+  display: inline-block;
+  position: relative;
+  top: 0.1em;
+  font-family: Demode;
+  font-size: 2em;
+  height: 1em;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* .top-left { */
+  /* position: absolute; */
+  /* left: 0; */
+  /* top: 0; */
+  /* z-index: 100; */
+/* } */
+
+.demo-button-box {
+  display: flex;
+  justify-content:center;
+  /* margin-left: 35%; */
+  /* margin-right: 35%; */
+}
+
+.demo-button {
+  width:1em;
+  height:1em;
+  border-radius: 50%;
+  background: deeppink;
+  padding: 0.25em;
+  font-size: 3em;
+  cursor:pointer;
+  text-align:center;
+  user-select:none;
+}
+
+.demo-button:hover {
+  background: hotpink;
+}

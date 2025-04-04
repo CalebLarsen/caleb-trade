@@ -1,23 +1,28 @@
+<!DOCTYPE HTML>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="../static/js/p5.min.js"></script>
-  <script src="../static/js/hilbert.js"></script>
-  <link href="../static/css/styles.css" rel="stylesheet">
+  <link href="/static/css/styles.css" rel="stylesheet">
+  <link href="/static/img/favicon.ico" rel="icon" type="image/x-icon">
+  <script src='/static/js/p5.min.js'></script><script src='/static/js/hilbert.js'></script>
+  <title></title>
 </head>
-<body style="margin: 0;">
-	<header class="top-left" style="left: 1.5em;">
-		<a href="/">Caleb's Website</a>
-		<a style="margin-left: 2em;" href="/blog">Blog</a>
-		<a style="margin-left: 2em;" href="/demos">Demos</a>
-	</header>
+<body>
+	<header>
+  <nav>
+    <a href="/">Caleb's Website</a>
+    <a style="margin-left: 2em"; href="/blog">Blog</a><a style="margin-left: 2em"; href="/demos">Demos</a><a style="margin-left: 2em"; href="/journal">Journal</a>
+  </nav>
+</header>
 	<canvas id='target' style="margin-bottom:0.75em;"></canvas>
-	<div id='buttons' class='demo-button-box'>
-		<div class='demo-button' style="margin-right:0.5em;" onClick="minus_button()">
-			-
-		</div>
-		<div class='demo-button' onClick="plus_button()">
-			+
-		</div>
+<div id='buttons' class='demo-button-box'>
+	<div class='demo-button' style="margin-right:0.5em;" onClick="minus_button()">
+		-
 	</div>
+	<div class='demo-button' onClick="plus_button()">
+		+
+	</div>
+</div>
+
 </body>
+
